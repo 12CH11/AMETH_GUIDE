@@ -1,0 +1,991 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10372b">
+<meta name="description" content="Ameth Ndiaye, guide touristique à Mbour au Sénégal. Excursions, circuits, plages, culture et découvertes touristiques.">
+<title>Ameth Ndiaye | Guide touristique au Sénégal</title>
+
+<style>
+:root {
+  --vert: #10372b;
+  --vert2: #1b5942;
+  --or: #e8bb61;
+  --fond: #f7f5ee;
+  --texte: #26352c;
+  --blanc: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texte);
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+img, video { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+.container { width: min(1160px, 92%); margin: auto; }
+
+header {
+  background: var(--vert);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 15px #0002;
+}
+.nav {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo { font-size: 22px; font-weight: 900; letter-spacing: .5px; }
+.logo span { color: var(--or); }
+nav { display: flex; align-items: center; gap: 18px; }
+nav a { font-size: 14px; font-weight: bold; }
+nav a:hover { color: var(--or); }
+.menu-btn {
+  display: none;
+  background: transparent;
+  color: white;
+  border: 1px solid #ffffff55;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.btn {
+  display: inline-block;
+  background: var(--or);
+  color: #1d2a20;
+  border: 0;
+  border-radius: 7px;
+  padding: 12px 19px;
+  font-weight: bold;
+  transition: .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-outline { border: 1px solid white; background: transparent; color: white; }
+
+.hero {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, #071d17ed, #071d1780),
+    url('images/A%20(1).jpg') center/cover no-repeat,
+    var(--vert);
+}
+.hero-content { max-width: 750px; padding: 80px 0; }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--or);
+}
+.hero h1 {
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.08;
+  margin: 18px 0;
+}
+.hero p { font-size: 18px; max-width: 640px; color: #f1f4f1; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+
+.section { padding: 75px 0; }
+.light { background: var(--fond); }
+.dark { background: var(--vert); color: white; }
+.section-head { text-align: center; max-width: 720px; margin: 0 auto 36px; }
+.section-head h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; margin: 10px 0; }
+.section-head p { color: #707970; }
+.dark .section-head p { color: #d3dfd6; }
+
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 23px; }
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 24px #13291c0d;
+  border: 1px solid #e8ebe5;
+}
+.card-img { height: 230px; background: #e5e8e1; overflow: hidden; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+.card:hover .card-img img { transform: scale(1.04); }
+.card-body { padding: 20px; }
+.card-body h3 { font-size: 21px; margin-bottom: 8px; }
+.card-body p { font-size: 14px; color: #69746c; }
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  background: #e8f1e8;
+  color: #24553b;
+  padding: 5px 10px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+.card-link { display: inline-block; margin-top: 14px; color: #206d49; font-weight: bold; }
+
+.features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.feature {
+  text-align: center;
+  padding: 24px 14px;
+  border: 1px solid #ffffff25;
+  background: #ffffff09;
+  border-radius: 10px;
+}
+.feature .emoji { font-size: 30px; margin-bottom: 8px; }
+.feature h3 { font-size: 17px; margin-bottom: 7px; }
+.feature p { font-size: 13px; color: #d1ddd4; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px;
+  align-items: center;
+}
+.about-photo {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  background: #e5e8e1;
+  border-radius: 12px;
+}
+.about-text h2 { font-size: clamp(30px, 4vw, 42px); line-height: 1.2; margin: 12px 0 18px; }
+.about-text p { color: #68736b; margin-bottom: 15px; }
+.checks { list-style: none; margin: 18px 0; }
+.checks li { padding: 5px 0; }
+.checks li:before { content: "✓"; color: #258653; font-weight: bold; margin-right: 10px; }
+
+.filters { display: flex; justify-content: center; gap: 9px; flex-wrap: wrap; margin-bottom: 25px; }
+.filter-btn {
+  padding: 9px 15px;
+  border: 1px solid #dce2da;
+  border-radius: 25px;
+  background: white;
+  color: #334238;
+}
+.filter-btn.active { background: var(--vert); color: white; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.gallery-item {
+  height: 245px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #e4e8e0;
+  border: 0;
+  padding: 0;
+  text-align: left;
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 35px 14px 13px;
+  color: white;
+  background: linear-gradient(transparent, #000c);
+  font-weight: bold;
+}
+
+.video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.video-card { background: white; color: var(--texte); border-radius: 10px; overflow: hidden; }
+.video-card video { width: 100%; aspect-ratio: 16/10; background: #111; object-fit: cover; }
+.video-card div { padding: 15px; }
+.video-card p { font-size: 14px; color: #6e786f; }
+
+.booking-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 30px; align-items: start; }
+.booking-info { background: var(--vert); color: white; border-radius: 12px; padding: 28px; }
+.booking-info h3 { font-size: 26px; margin: 12px 0; }
+.booking-info p { color: #d3dfd6; margin-bottom: 15px; }
+.contact-line { margin: 15px 0; }
+.form-card { background: white; border: 1px solid #e1e6df; border-radius: 12px; padding: 27px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 17px; }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 15px; }
+.field label { font-size: 13px; font-weight: bold; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  border: 1px solid #d7ded5;
+  border-radius: 7px;
+  padding: 12px;
+  background: white;
+  color: var(--texte);
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.full { grid-column: 1 / -1; }
+.notice { font-size: 12px; color: #727b73; margin-top: 12px; }
+
+.faq { max-width: 800px; margin: auto; }
+details { padding: 18px 0; border-bottom: 1px solid #e0e5de; }
+summary { font-weight: bold; cursor: pointer; }
+details p { color: #69736c; padding-top: 10px; }
+
+footer { background: #091d16; color: white; padding: 42px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+footer p, footer a { font-size: 14px; color: #c7d3ca; }
+footer h3 { margin-bottom: 12px; }
+footer a { display: block; margin: 7px 0; }
+.copyright {
+  border-top: 1px solid #ffffff22;
+  margin-top: 27px;
+  padding-top: 17px;
+  color: #c0ccc3;
+  font-size: 12px;
+}
+
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 150;
+  background: #20bf64;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px #0003;
+  font-weight: bold;
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: #000e;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 95%; max-height: 85vh; object-fit: contain; }
+.lightbox button {
+  position: absolute;
+  top: 18px;
+  right: 23px;
+  background: #ffffff25;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  font-size: 32px;
+  padding: 2px 14px;
+}
+.empty { grid-column: 1 / -1; text-align: center; padding: 25px; color: #69736c; }
+
+@media (max-width: 850px) {
+  .menu-btn { display: block; }
+  nav {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    background: var(--vert);
+    padding: 20px 5%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 17px;
+  }
+  nav.open { display: flex; }
+  .grid, .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .features { grid-template-columns: repeat(2, 1fr); }
+  .about-grid, .booking-grid { grid-template-columns: 1fr; }
+  .about-photo { height: 340px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .hero { min-height: 530px; }
+  .hero p { font-size: 16px; }
+  .section { padding: 52px 0; }
+  .grid, .video-grid, .gallery-grid { grid-template-columns: 1fr; }
+  .card-img { height: 240px; }
+  .gallery-item { height: 270px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .full { grid-column: auto; }
+  .form-card, .booking-info { padding: 20px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-grid > div:first-child { grid-column: auto; }
+  .whatsapp { right: 12px; bottom: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#accueil">AMETH <span>NDIAYE</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">☰ Menu</button>
+    <nav id="nav">
+      <a href="#accueil">Accueil</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#circuits">Circuits</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#videos">Vidéos</a>
+      <a href="#guide">Le guide</a>
+      <a class="btn" href="#reservation">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="accueil">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Teranga • Culture • Nature • Aventure</div>
+      <h1>Découvrez le Sénégal autrement</h1>
+      <p>
+        Avec Ameth Ndiaye, guide touristique basé à Mbour, explorez
+        les plus beaux paysages du Sénégal, ses traditions, ses villages
+        et son patrimoine.
+      </p>
+      <div class="actions">
+        <a class="btn" href="#destinations">Explorer les destinations ↗</a>
+        <a class="btn btn-outline" href="#reservation">Organiser mon voyage</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="destinations">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Nos découvertes</div>
+      <h2>Les incontournables du Sénégal</h2>
+      <p>Des plages aux villages traditionnels, découvrez les richesses du Sénégal.</p>
+    </div>
+    <div class="grid" id="destinationGrid"></div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Votre expérience</div>
+      <h2>Voyagez en toute tranquillité</h2>
+      <p>Préparez votre découverte du Sénégal avec un guide local.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="emoji">🧭</div>
+        <h3>Guide local</h3>
+        <p>Découvrez la culture et les traditions.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">🚙</div>
+        <h3>Excursions</h3>
+        <p>Des sorties adaptées à votre programme.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">📸</div>
+        <h3>Souvenirs</h3>
+        <p>Des paysages à découvrir et photographier.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">🤝</div>
+        <h3>Teranga</h3>
+        <p>Un accueil chaleureux à la sénégalaise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="circuits">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Nos propositions</div>
+      <h2>Circuits et excursions</h2>
+      <p>Contactez le guide pour définir votre programme et recevoir un devis.</p>
+    </div>
+    <div class="grid" id="tripGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="galerie">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">En images</div>
+      <h2>Galerie photos du Sénégal</h2>
+      <p>Découvrez les 45 photos du site.</p>
+    </div>
+    <div class="filters" id="galleryFilters">
+      <button class="filter-btn active" data-filter="all">Toutes les photos (45)</button>
+      <button class="filter-btn" data-filter="nature">Nature</button>
+      <button class="filter-btn" data-filter="culture">Culture</button>
+      <button class="filter-btn" data-filter="plage">Plages</button>
+      <button class="filter-btn" data-filter="excursion">Excursions</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<section class="section dark" id="videos">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Reportages et souvenirs</div>
+      <h2>Nos vidéos touristiques</h2>
+      <p>Ajoutez vos vidéos dans le dossier videos pour les afficher sur le site.</p>
+    </div>
+    <div class="video-grid" id="videoGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="guide">
+  <div class="container about-grid">
+    <img class="about-photo" id="guidePhoto" src="images/A%20(14).jpg" alt="Photo du guide touristique" loading="lazy">
+    <div class="about-text">
+      <div class="eyebrow">Votre guide touristique</div>
+      <h2>Ameth Ndiaye</h2>
+      <p>
+        Bienvenue ! Je suis Ameth Ndiaye, guide touristique basé à Mbour,
+        au Sénégal. Je vous accompagne à la découverte des richesses du pays,
+        de ses paysages, de son histoire et de sa culture.
+      </p>
+      <p>
+        Que vous voyagiez seul, en famille, entre amis ou en groupe,
+        discutons d'un programme adapté à vos envies, à la durée de votre
+        séjour et à votre budget.
+      </p>
+      <ul class="checks">
+        <li>Adresse : Mbour, Sénégal</li>
+        <li>Excursions et circuits touristiques</li>
+        <li>Découverte des sites et traditions</li>
+        <li>Organisation de visites sur demande</li>
+      </ul>
+      <a class="btn" href="https://wa.me/221779231974" target="_blank" rel="noopener">
+        Contacter Ameth sur WhatsApp ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="reservation">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Contact et réservation</div>
+      <h2>Préparons votre prochaine aventure</h2>
+      <p>Remplissez le formulaire pour envoyer votre demande sur WhatsApp.</p>
+    </div>
+
+    <div class="booking-grid">
+      <div class="booking-info">
+        <div class="eyebrow">À votre écoute</div>
+        <h3>Ameth Ndiaye</h3>
+        <p>Votre guide touristique à Mbour pour découvrir les sites du Sénégal.</p>
+        <div class="contact-line">📍 Mbour, Sénégal</div>
+        <div class="contact-line">📞 +221 77 923 19 74</div>
+        <div class="contact-line">💬 Contact direct par WhatsApp</div>
+        <a class="btn" href="https://wa.me/221779231974" target="_blank" rel="noopener">
+          Écrire sur WhatsApp ↗
+        </a>
+      </div>
+
+      <form class="form-card" id="bookingForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="nom">Nom complet *</label>
+            <input id="nom" name="nom" required placeholder="Votre nom">
+          </div>
+          <div class="field">
+            <label for="telephone">Votre téléphone</label>
+            <input id="telephone" name="telephone" type="tel" placeholder="+221 ...">
+          </div>
+          <div class="field">
+            <label for="date">Date souhaitée *</label>
+            <input id="date" name="date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="personnes">Nombre de personnes *</label>
+            <select id="personnes" name="personnes" required>
+              <option value="">Choisir</option>
+              <option>1 personne</option>
+              <option>2 personnes</option>
+              <option>3 à 5 personnes</option>
+              <option>6 à 10 personnes</option>
+              <option>Plus de 10 personnes</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="destination">Destination souhaitée *</label>
+            <select id="destination" name="destination" required>
+              <option value="">Choisir une destination</option>
+              <option>Mbour et Saly</option>
+              <option>Joal-Fadiouth</option>
+              <option>Île de Gorée et Dakar</option>
+              <option>Lac Rose</option>
+              <option>Sine-Saloum</option>
+              <option>Désert de Lompoul</option>
+              <option>Réserve de Bandia</option>
+              <option>Les plages du Sénégal</option>
+              <option>Plusieurs destinations</option>
+              <option>Autre destination</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Votre projet de voyage</label>
+            <textarea id="message" name="message" placeholder="Durée, transport, activités, budget..."></textarea>
+          </div>
+        </div>
+        <button class="btn" type="submit">Envoyer la demande sur WhatsApp ↗</button>
+        <p class="notice">WhatsApp s'ouvrira avec votre message prérempli. Confirmez l'envoi dans WhatsApp.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Questions fréquentes</div>
+      <h2>Avant de partir</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Comment réserver une excursion ?</summary>
+        <p>Remplissez le formulaire puis envoyez votre demande à Ameth sur WhatsApp. La réservation est confirmée après échange avec le guide.</p>
+      </details>
+      <details>
+        <summary>Peut-on personnaliser le circuit ?</summary>
+        <p>Oui, vous pouvez discuter des destinations, de la durée et des activités souhaitées.</p>
+      </details>
+      <details>
+        <summary>Comment connaître les tarifs ?</summary>
+        <p>Contactez Ameth pour obtenir un devis selon le groupe, le transport et les activités choisies.</p>
+      </details>
+      <details>
+        <summary>Où se trouve le guide ?</summary>
+        <p>Ameth Ndiaye est basé à Mbour, au Sénégal. Les excursions doivent être organisées à l'avance.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="#accueil">AMETH <span>NDIAYE</span></a>
+        <p style="margin-top:13px;max-width:360px">
+          Guide touristique basé à Mbour. Découvrez le Sénégal, ses paysages,
+          sa culture et ses traditions.
+        </p>
+      </div>
+      <div>
+        <h3>Navigation</h3>
+        <a href="#destinations">Destinations</a>
+        <a href="#circuits">Circuits</a>
+        <a href="#galerie">Galerie photos</a>
+        <a href="#videos">Vidéos</a>
+      </div>
+      <div>
+        <h3>Contact du guide</h3>
+        <p>Ameth Ndiaye</p>
+        <p>📍 Mbour, Sénégal</p>
+        <p>📞 +221 77 923 19 74</p>
+        <a href="https://wa.me/221779231974" target="_blank" rel="noopener">Discuter sur WhatsApp ↗</a>
+      </div>
+    </div>
+    <div class="copyright">
+      © <span id="year"></span> Ameth Ndiaye — Guide touristique au Sénégal.
+      Tous droits réservés.
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/221779231974" target="_blank" rel="noopener">☎ WhatsApp</a>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button id="closeLightbox" aria-label="Fermer">×</button>
+  <img id="lightboxImg" src="" alt="Photo touristique agrandie">
+</div>
+
+<script>
+"use strict";
+
+const WHATSAPP_NUMBER = "221779231974";
+
+/*
+  NOMS EXACTS DES FICHIERS :
+  A (1).jpg
+  A (2).jpg
+  A (3).jpg
+  ...
+  A (45).jpg
+
+  Les images doivent être dans le dossier images.
+*/
+function imagePath(number) {
+  return "images/" + encodeURIComponent("A (" + number + ").jpg");
+}
+
+const categories = [
+  "plage", "culture", "culture", "nature", "nature",
+  "nature", "culture", "excursion", "plage", "nature",
+  "culture", "plage", "excursion", "nature", "culture",
+  "nature", "plage", "excursion", "culture", "nature",
+  "plage", "nature", "culture", "excursion", "plage",
+  "culture", "nature", "excursion", "plage", "culture",
+  "nature", "nature", "excursion", "culture", "plage",
+  "excursion", "nature", "culture", "plage", "nature",
+  "culture", "excursion", "plage", "nature", "excursion"
+];
+
+const photos = Array.from({ length: 45 }, (_, index) => {
+  const number = index + 1;
+  return {
+    number,
+    title: "Photo A (" + number + ")",
+    category: categories[index],
+    src: imagePath(number)
+  };
+});
+
+const destinations = [
+  {
+    name: "Mbour et Saly",
+    category: "plage",
+    image: 2,
+    description: "Découvrez les plages, le port de pêche de Mbour et l'ambiance de la Petite Côte."
+  },
+  {
+    name: "Joal-Fadiouth",
+    category: "culture",
+    image: 3,
+    description: "Explorez l'île aux coquillages, ses passerelles et les traditions de la région."
+  },
+  {
+    name: "L'île de Gorée",
+    category: "culture",
+    image: 4,
+    description: "Découvrez les ruelles historiques, l'architecture et les lieux de mémoire de l'île."
+  },
+  {
+    name: "Le Lac Rose",
+    category: "nature",
+    image: 5,
+    description: "Admirez le lac et les paysages environnants selon la saison et les conditions locales."
+  },
+  {
+    name: "Le Sine-Saloum",
+    category: "nature",
+    image: 6,
+    description: "Découvrez les bolongs, la mangrove et les paysages naturels du delta."
+  },
+  {
+    name: "Le désert de Lompoul",
+    category: "nature",
+    image: 7,
+    description: "Partez à la découverte des dunes de sable et des paysages désertiques."
+  },
+  {
+    name: "Dakar",
+    category: "culture",
+    image: 8,
+    description: "Explorez la capitale, ses quartiers, ses marchés et ses sites culturels."
+  },
+  {
+    name: "La réserve de Bandia",
+    category: "excursion",
+    image: 9,
+    description: "Organisez une sortie nature pour observer les animaux dans une réserve aménagée."
+  },
+  {
+    name: "Les plages du Sénégal",
+    category: "plage",
+    image: 10,
+    description: "Découvrez les plages et les activités balnéaires selon les conditions locales."
+  }
+];
+
+const circuits = [
+  {
+    name: "Découverte de la Petite Côte",
+    image: 11,
+    duration: "1 journée",
+    price: "Sur devis",
+    description: "Mbour, Saly et les alentours : découverte de la côte, des marchés et de la vie locale."
+  },
+  {
+    name: "Culture et patrimoine",
+    image: 12,
+    duration: "1 journée",
+    price: "Sur devis",
+    description: "Une sortie consacrée à l'histoire, aux traditions et au patrimoine sénégalais."
+  },
+  {
+    name: "Nature et aventure",
+    image: 13,
+    duration: "1 à plusieurs journées",
+    price: "Sur devis",
+    description: "Choisissez un circuit nature entre paysages, villages et excursions."
+  }
+];
+
+const videos = [
+  {
+    title: "Découverte de Mbour",
+    src: "videos/mbour.mp4",
+    description: "Présentation de Mbour et de ses environs."
+  },
+  {
+    title: "Une journée d'excursion",
+    src: "videos/excursion.mp4",
+    description: "Quelques moments de visite et de découverte."
+  },
+  {
+    title: "Présentation du guide",
+    src: "videos/presentation.mp4",
+    description: "Découvrez Ameth Ndiaye et ses services touristiques."
+  }
+];
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function categoryLabel(category) {
+  const labels = {
+    nature: "Nature",
+    culture: "Culture",
+    plage: "Plage",
+    excursion: "Excursion"
+  };
+  return labels[category] || "Destination";
+}
+
+// Génération des cartes de destinations
+document.getElementById("destinationGrid").innerHTML =
+  destinations.map(destination => `
+    <article class="card">
+      <div class="card-img">
+        <img src="${imagePath(destination.image)}"
+             alt="${escapeHTML(destination.name)}"
+             loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="tag">${categoryLabel(destination.category)}</span>
+        <h3>${escapeHTML(destination.name)}</h3>
+        <p>${escapeHTML(destination.description)}</p>
+        <a class="card-link"
+           href="#reservation"
+           data-destination="${escapeHTML(destination.name)}">
+          Découvrir ce lieu ↗
+        </a>
+      </div>
+    </article>
+  `).join("");
+
+// Génération des cartes de circuits
+document.getElementById("tripGrid").innerHTML =
+  circuits.map(circuit => `
+    <article class="card">
+      <div class="card-img">
+        <img src="${imagePath(circuit.image)}"
+             alt="${escapeHTML(circuit.name)}"
+             loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="tag">🗓 ${escapeHTML(circuit.duration)}</span>
+        <h3>${escapeHTML(circuit.name)}</h3>
+        <p>${escapeHTML(circuit.description)}</p>
+        <p style="margin-top:12px;color:#206d49;font-weight:bold">
+          ${escapeHTML(circuit.price)}
+        </p>
+        <a class="card-link"
+           href="#reservation"
+           data-destination="${escapeHTML(circuit.name)}">
+          Demander un devis ↗
+        </a>
+      </div>
+    </article>
+  `).join("");
+
+// Génération de la galerie des 45 images
+const galleryGrid = document.getElementById("galleryGrid");
+
+function renderGallery(filter = "all") {
+  const filteredPhotos = photos.filter(photo =>
+    filter === "all" || photo.category === filter
+  );
+
+  if (filteredPhotos.length === 0) {
+    galleryGrid.innerHTML =
+      '<p class="empty">Aucune photo dans cette catégorie.</p>';
+    return;
+  }
+
+  galleryGrid.innerHTML = filteredPhotos.map(photo => `
+    <button class="gallery-item"
+            data-image="${photo.src}"
+            data-title="${escapeHTML(photo.title)}"
+            aria-label="Agrandir ${escapeHTML(photo.title)}">
+      <img src="${photo.src}"
+           alt="${escapeHTML(photo.title)}"
+           loading="lazy">
+      <span class="gallery-caption">${escapeHTML(photo.title)}</span>
+    </button>
+  `).join("");
+}
+
+renderGallery();
+
+// Filtrage des photos
+document.getElementById("galleryFilters").addEventListener("click", event => {
+  const button = event.target.closest("[data-filter]");
+  if (!button) return;
+
+  document.querySelectorAll(".filter-btn").forEach(item => {
+    item.classList.toggle("active", item === button);
+  });
+
+  renderGallery(button.dataset.filter);
+});
+
+// Génération des vidéos
+document.getElementById("videoGrid").innerHTML =
+  videos.map(video => `
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="${escapeHTML(video.src)}" type="video/mp4">
+        Votre navigateur ne peut pas lire cette vidéo.
+      </video>
+      <div>
+        <h3>${escapeHTML(video.title)}</h3>
+        <p>${escapeHTML(video.description)}</p>
+      </div>
+    </article>
+  `).join("");
+
+// Menu mobile
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
+menuBtn.addEventListener("click", () => {
+  const opened = nav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(opened));
+});
+
+nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Préremplissage du choix de destination
+document.addEventListener("click", event => {
+  const link = event.target.closest("[data-destination]");
+  if (!link) return;
+
+  const select = document.getElementById("destination");
+  const name = link.dataset.destination;
+  const option = [...select.options].find(item => item.text === name);
+
+  if (option) {
+    select.value = option.value;
+  } else {
+    select.value = "Autre destination";
+    document.getElementById("message").value =
+      "Je souhaite des informations sur : " + name;
+  }
+});
+
+// Agrandissement des images
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+
+galleryGrid.addEventListener("click", event => {
+  const item = event.target.closest("[data-image]");
+  if (!item) return;
+
+  lightboxImg.src = item.dataset.image;
+  lightboxImg.alt = item.dataset.title || "Photo touristique";
+  lightbox.classList.add("open");
+  document.getElementById("closeLightbox").focus();
+});
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightboxImg.src = "";
+}
+
+document.getElementById("closeLightbox")
+  .addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeLightbox();
+});
+
+// Création des liens WhatsApp
+function whatsappUrl(message) {
+  return "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
+}
+
+const generalMessage =
+  "Bonjour Ameth Ndiaye, je souhaite des informations sur vos circuits touristiques au Sénégal.";
+
+document.querySelectorAll('a[href="https://wa.me/221779231974"]')
+  .forEach(link => {
+    link.href = whatsappUrl(generalMessage);
+  });
+
+// Formulaire de réservation
+document.getElementById("bookingForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+
+  const data = new FormData(form);
+
+  const message = [
+    "Bonjour Ameth Ndiaye, je souhaite organiser une excursion touristique.",
+    "",
+    "Nom : " + data.get("nom"),
+    "Téléphone : " + (data.get("telephone") || "Non renseigné"),
+    "Date souhaitée : " + data.get("date"),
+    "Nombre de personnes : " + data.get("personnes"),
+    "Destination : " + data.get("destination"),
+    "Projet : " + (data.get("message") || "À discuter"),
+    "",
+    "Merci de me communiquer vos disponibilités et votre tarif."
+  ].join("\n");
+
+  window.open(whatsappUrl(message), "_blank");
+});
+
+// Empêcher la sélection d'une date passée
+const dateInput = document.getElementById("date");
+const today = new Date();
+
+dateInput.min =
+  today.getFullYear() + "-" +
+  String(today.getMonth() + 1).padStart(2, "0") + "-" +
+  String(today.getDate()).padStart(2, "0");
+
+// Année automatique
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
